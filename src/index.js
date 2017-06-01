@@ -1,15 +1,46 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import { Provider } from 'react-redux';
-import { createStore, applyMiddleware } from 'redux';
+import React, { Component } from 'react';
+import ReactDOM from 'react-dom'; //library
+import SearchBar from './components/search_bar'; //file you made, therefore include relative path
+import VideoList from './components/video_list';
+import VideoDetail from './components/video_detail';
+import YTSearch from 'youtube-api-search';
+const API_KEY = 'AIzaSyBfN8VRPAD7Kzp5JceTnzIGpVmV1KWsM40';
 
-import App from './components/app';
-import reducers from './reducers';
+class App extends Component { //this is a class -- creates instances of what gets rendered to the DOM
+		constructor(props) {
+			super(props);
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+			this.state = {
+				videos: [],
+				selectedVideo: null
+			};
 
-ReactDOM.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
-    <App />
-  </Provider>
-  , document.querySelector('.container'));
+			this.videoSearch('surfboards');
+}
+
+		videoSearch(term) {
+			
+			YTSearch({key: API_KEY, term: 'skateboards'}, (videos) => {
+
+			this.setState({ 
+				videos: videos, // or this.setState({ videos }) <-- property and val both called videos
+				selectedVideo: videos[0]
+			});
+		 }); 
+		}
+
+		render () {
+
+			return (
+				<div> 
+					<SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+					<VideoDetail video={this.state.selectedVideo} />
+					<VideoList 
+					onVideoSelect={ selectedVideo => this.setState({ selectedVideo })}
+					videos={this.state.videos} />
+				</div>
+			);
+		}
+}
+
+ReactDOM.render(<App />, document.querySelector('.container'));
