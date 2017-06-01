@@ -1,3 +1,4 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'; //library
 import SearchBar from './components/search_bar'; //file you made, therefore include relative path
@@ -20,7 +21,7 @@ class App extends Component { //this is a class -- creates instances of what get
 
 		videoSearch(term) {
 			
-			YTSearch({key: API_KEY, term: 'skateboards'}, (videos) => {
+			YTSearch({key: API_KEY, term: term }, (videos) => {
 
 			this.setState({ 
 				videos: videos, // or this.setState({ videos }) <-- property and val both called videos
@@ -30,10 +31,10 @@ class App extends Component { //this is a class -- creates instances of what get
 		}
 
 		render () {
-
+			const videoSearch = _.debounce((term) => { this.videoSearch(term) }, 300);
 			return (
 				<div> 
-					<SearchBar onSearchTermChange={term => this.videoSearch(term)}/>
+					<SearchBar onSearchTermChange={videoSearch}/>
 					<VideoDetail video={this.state.selectedVideo} />
 					<VideoList 
 					onVideoSelect={ selectedVideo => this.setState({ selectedVideo })}
@@ -44,3 +45,23 @@ class App extends Component { //this is a class -- creates instances of what get
 }
 
 ReactDOM.render(<App />, document.querySelector('.container'));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
