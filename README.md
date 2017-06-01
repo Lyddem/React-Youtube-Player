@@ -1,7 +1,8 @@
 # React Youtube Viewer
 
 Uses React/Redux and Youtube Api.
-Thanks to Stephen Grider for the Boilerplate: https://github.com/StephenGrider/ReduxSimpleStarter
+Thanks to Stephen Grider for the Starter code!
+https://github.com/StephenGrider/ReduxSimpleStarter
 ### Getting Started
 
 In Bash/Terminal:
@@ -10,5 +11,6 @@ In Bash/Terminal:
 > cd Lyddem/React-Youtube-Player
 > npm install
 > npm start
-```
+
 View in browser at localhost:8080 
+```
