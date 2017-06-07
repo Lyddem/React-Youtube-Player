@@ -7,8 +7,6 @@ https://github.com/StephenGrider/ReduxSimpleStarter
 
 In Bash/Terminal:
 ```
-> git clone Lyddem/React-Youtube-Player
-> cd Lyddem/React-Youtube-Player
 > npm install
 > npm start
 
