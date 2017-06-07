@@ -11,7 +11,7 @@ class SearchBar extends Component {
 	render () { //method in SearchBar class, when you render Searchbar, it will call this render method. (in which you have jsx)
 		return (
 			<div className="search-bar">
-				<input 
+				Search <input 
 				value= {this.state.term}
 				onChange={ e => this.onInputChange(e.target.value)} /> 
 			</div>
