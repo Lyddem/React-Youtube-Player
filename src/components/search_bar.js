@@ -8,7 +8,7 @@ class SearchBar extends Component {
 }
 
 
-	render () { //method in SearchBar class, when you render Searchbar, it will call this render method. (in which you have jsx)
+	render () { 
 		return (
 			<div className="search-bar">
 				Search <input 

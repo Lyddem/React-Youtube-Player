@@ -2,7 +2,7 @@
 bundle.js
 npm-debug.log
 .DS_Store
-../src/components/YoutubeApi.js
+../src/components/YoutubeApi2.js
 
 # IntelliJ
 *.iml

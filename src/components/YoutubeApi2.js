@@ -1,0 +1,1 @@
+var YTkey = 'AIzaSyBfN8VRPAD7Kzp5JceTnzIGpVmV1KWsM40';

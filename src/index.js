@@ -5,7 +5,7 @@ import SearchBar from './components/search_bar'; //file you made, therefore incl
 import VideoList from './components/video_list';
 import VideoDetail from './components/video_detail';
 import YTSearch from 'youtube-api-search';
-const API_KEY = 'AIzaSyBfN8VRPAD7Kzp5JceTnzIGpVmV1KWsM40';
+// const API_KEY = 'AIzaSyBfN8VRPAD7Kzp5JceTnzIGpVmV1KWsM40';
 
 class App extends Component { //this is a class -- creates instances of what gets rendered to the DOM
 		constructor(props) {
@@ -20,8 +20,9 @@ class App extends Component { //this is a class -- creates instances of what get
 }
 
 		videoSearch(term) {
-			
-			YTSearch({key: API_KEY, term: term }, (videos) => {
+			alert(YTkey);
+			YTSearch({key: YTkey, term: term }, (videos) => {
+
 
 			this.setState({ 
 				videos: videos, // or this.setState({ videos }) <-- property and val both called videos
